@@ -236,6 +236,7 @@ def init_db():
 # ============================================
 # CRUD OPERATIONS
 # ============================================
+#Add Credentials:
 def add_credential():
     website = input("Enter website name: ")
     username = input("Enter username: ")
@@ -341,7 +342,7 @@ def add_credential():
     conn.close()
     print("Credential added successfully!\n")
 
-
+#View Credentials:
 def view_credentials():
     conn = sqlite3.connect("password_manager.db")
     cursor = conn.cursor()
@@ -360,6 +361,7 @@ def view_credentials():
         print(f"ID: {row[0]} | Website: {row[1]} | Username: {row[2]} | Password: {decrypted_password}")
     print("-" * 60 + "\n")
 
+#Update Credentials:
 def update_credential():
     view_credentials()
     id_to_update = input("Enter the ID of the credential to update: ")
@@ -419,6 +421,7 @@ def update_credential():
 
     print("\nCredential updated successfully!\n")
 
+#Delete Credentials:
 def delete_credential():
     view_credentials()
     id_to_delete = input("Enter the ID of the credential to delete: ")
