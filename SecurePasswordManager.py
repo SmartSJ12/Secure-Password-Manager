@@ -14,7 +14,7 @@ from difflib import SequenceMatcher
 # ============================================
 def input_password(prompt="Enter password: "):
     """Custom password input that shows '*' for each character typed."""
-    # VS Code terminal often doesn't support real-time masking
+    # VS Code terminal often doesn't support real-time masking.
     if os.getenv("TERM_PROGRAM") == "vscode":
         return input(prompt)
 
@@ -41,7 +41,7 @@ def input_password(prompt="Enter password: "):
                     password += ch
                     sys.stdout.write('*')
                     sys.stdout.flush()
-        # macOS / Linux
+        # macOS / Linux:
     else:
         import termios
         import tty
@@ -70,9 +70,9 @@ def input_password(prompt="Enter password: "):
 
     return password
 
-# ============================================
+# =================================================
 # ENCRYPTION SETUP
-# ============================================
+# =================================================
 KEY_FILE = "key.key"
 
 def generate_key():
@@ -197,7 +197,6 @@ def generate_password(username=""):
             return password
 
     return "".join(random.choices(all_chars, k=16))
-
 
 # ============================================
 # DATABASE SETUP
@@ -445,6 +444,7 @@ def delete_credential():
         conn.close()
         return
 
+
     # Confirm deletion
     print(f"\nAre you sure you want to delete this credential?")
     print(f"Website: {record[1]} | Username: {record[2]}")
@@ -489,6 +489,7 @@ def main():
     master_password = get_master_password()
     number_of_tries = 0
 
+    
     while True:
         if number_of_tries == 2:
             while True:
@@ -558,6 +559,8 @@ def main():
         else:
             number_of_tries += 1
             print("Incorrect Password.")
+
+
 
 # ============================================
 # RUN PROGRAM
